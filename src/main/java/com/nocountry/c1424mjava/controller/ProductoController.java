@@ -1,13 +1,18 @@
 package com.nocountry.c1424mjava.controller;
 
 import com.nocountry.c1424mjava.dto.ProductoDto;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import com.nocountry.c1424mjava.model.Producto;
 import com.nocountry.c1424mjava.service.ProductoService;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/productos")
 public class ProductoController {
     private final ProductoService productoService;
@@ -16,28 +21,54 @@ public class ProductoController {
         this.productoService = productoService;
     }
 
-    @PostMapping
-    public Producto createProducto(@RequestBody ProductoDto productoDto) {
-        return productoService.createProducto(productoDto);
+
+    @GetMapping("/crear_productos.html")
+    public String mostrarFormulario() {
+
+        return "crear_productos.html";
     }
 
-    @PutMapping("/{id}")
-    public Producto updateProducto(@PathVariable int id, @RequestBody ProductoDto productoDto) {
-        return productoService.updateProducto(id, productoDto);
+    @PostMapping("/crear_productos.html")
+    public String createProducto(@ModelAttribute("Producto") ProductoDto productoDto,
+                                 @RequestParam("imagen") MultipartFile imagen) {
+        try {
+            Producto producto = productoService.createProducto(productoDto, imagen);
+            return "redirect:/productos/lista_productos.html";
+        } catch (IOException e) {
+            return "redirection:/lista_productos";
+        }
+
     }
 
-    @DeleteMapping("/{id}")
-    public void deleteProducto(@PathVariable int id) {
+    @PutMapping("actualizar_producto/{id}")
+    public String updateProducto(@PathVariable int id,
+                                 @ModelAttribute("Producto") ProductoDto productoDto,
+                                 @RequestParam("imagen") MultipartFile imagen) {
+        try {
+            Producto producto = productoService.updateProducto(id, productoDto, imagen);
+            return "redirect:/productos";
+        } catch (IOException e) {
+            return "redirection:/lista_productos";
+        }
+    }
+
+    @DeleteMapping("eliminar_producto/{id}")
+    public String deleteProducto(@PathVariable int id) {
         productoService.deleteProducto(id);
+        return "redirect:/productos";
     }
 
-    @GetMapping("/{id}")
-    public Producto getProducto(@PathVariable int id) {
-        return productoService.getProducto(id);
+    @GetMapping("productos/{id}")
+    public String getProducto(@PathVariable int id, ModelMap model) {
+        Producto producto = productoService.getProducto(id);
+        model.addAttribute("Producto", producto);
+        return "lista_productos";
     }
 
-    @GetMapping
-    public List<Producto> getAllProductos() {
-        return productoService.getAllProductos();
+    @GetMapping("/lista_productos.html")
+    public String getAllProductos(ModelMap model) {
+        List<Producto> productos = productoService.getAllProductos();
+        model.addAttribute("Producto", productos);
+        return "lista_productos";
     }
 }
