@@ -6,7 +6,7 @@ function goBackToTop() {
 
     if (scroll > 400) {
       arrowUp.style.right = 28 + "px"
-      console.log("ejecutando");
+
     }else{
       arrowUp.style.right = -100 + "px"
 
@@ -16,4 +16,3 @@ function goBackToTop() {
 }
 
 goBackToTop();
-console.log("ejecutnado");
