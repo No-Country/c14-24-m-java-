@@ -1,0 +1,82 @@
+section {
+  height: calc(100vh - 5rem);
+  width: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+  user-select: none;
+}
+
+section .titulo{
+  color: #000000;
+}
+
+section .btn-listar, .btn-cargar{
+  position: absolute;
+  top: 2rem;
+  right: 1rem;
+  width: auto;
+  height: 3rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #f3f2f1;
+  background-color: #000000;
+  padding: 0 .5rem 0 .5rem;
+  border-radius: .2rem;
+}
+
+
+.btn-listare, .btn-cargare {
+    width: 296px;
+    height: -1px;
+    margin: 0 5.5rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #f3f2f1;
+    background-color: #000000;
+    padding: 4.5rem;
+    border-radius: 0.2rem;
+}
+}
+
+section .btn-cargar{
+  top: 1rem;}
+
+
+section .btn {
+  background-color:#000000;
+  width: auto;
+  height: 3rem;
+  margin: 0 auto;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #f3f2f1;
+  padding: 0 .5rem 0 .5rem;
+  border-radius: .2rem;
+}
+section .btn-listar:hover, .btn-cargar:hover,
+section .btn:hover {
+  background-color: #808080
+  color: #f3f2f1;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-container a {
+    width: 350px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+
+
