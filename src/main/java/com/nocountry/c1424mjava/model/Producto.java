@@ -19,7 +19,8 @@ public class Producto {
     private String categoria;
     @Column(name = "stock")
     private int stock;
-    @Column(name = "imagen") @Lob
+    @Lob
+    @Column(name = "imagen", columnDefinition = "MEDIUMBLOB")
     private byte[] imagen;
 
 
