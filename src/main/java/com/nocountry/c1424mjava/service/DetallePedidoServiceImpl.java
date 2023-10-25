@@ -26,4 +26,5 @@ public class DetallePedidoServiceImpl implements DetallePedidoService {
         return detallePedidoRepository.findAll();
     }
     
+    
 }

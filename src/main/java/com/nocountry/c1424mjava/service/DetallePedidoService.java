@@ -8,4 +8,5 @@ public interface DetallePedidoService {
     DetallePedido getDetallePedido(int id);
     List<DetallePedido> getAllDetallePedido();
     
+    
 }
