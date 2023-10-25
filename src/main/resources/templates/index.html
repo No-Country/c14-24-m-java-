@@ -13,15 +13,11 @@
     <link href='https://fonts.googleapis.com/css?family=Wire+One|Raleway:300' rel='stylesheet' type='text/css'>
 
 
-
     <link rel="stylesheet" th:href="@{/css/styles.css}">
     <link rel="stylesheet" th:href="@{/css/header.css}">
     <link rel="stylesheet" th:href="@{/css/menu.css}">
     <link rel="stylesheet" th:href="@{/css/footer.css}">
     <link rel="stylesheet" th:href="@{/css/whats.css}">
-
-
-
 
 
     <title>PipiCucu FOOD</title>
@@ -33,9 +29,6 @@
 <header th:replace="~{components/navbar :: header}"></header>
 
 <main>
-
-
-
 
 
     <!-----------restorantee------------>
@@ -58,13 +51,14 @@
         <h2></h2>
 
 
-
         <h2 class="fw-normal">COMO LO HACEMOS?</h2>
         <p class="fs-4 fw-bold text-center px-3">
         <p>Facil... Mirá...</p>
 
         <li>Elegí tus platos, bebidas, y postre como si fuera tu último asado.</li>
-        <li>Elegí como vas a pagarlo y decinos si preferis pasarlo a buscar por el local o que te lo llevemos a tu casa</li>
+        <li>Elegí como vas a pagarlo y decinos si preferis pasarlo a buscar por el local o que te lo llevemos a tu
+            casa
+        </li>
 
         <li>y listo! asi de fácul, así de sencillo</li>
         </ol>
@@ -75,35 +69,55 @@
         </p>
 
 
-
     </section>
     <!----------- restorante END------------>
 
 
     <!-----------MENU------------>
-    <section id="turf" class="container-fluid d-flex flex-column justify-content-center  align-items-center my-3">
-        <h1 class="fw-bold py-4 text-center"> MENU</h1>
-        <div class="container"  th:each="Producto : ${Producto}" >
+
+    <section id="menus" class="container-fluid d-flex flex-column justify-content-center align-items-center my-4"
+             style="margin-top: 500px;">
+        <h1 class="fw-bold py-4 text-center">MENU</h1>
+        <div class="container">
             <div class="row">
-                <div class="col col-12">
-                    <div class=" row-container row  d-flex align-items-center py-2">
-                        <div class="col-sm-12 col-lg-6 position-relative">
+                <div class="col-md-6 col-lg-4" th:each="Producto : ${Producto}">
+                    <div class="box shadow p-4 bg-light">
+                        <div class="box">
+                            <div class="imgbox">
+                                <img th:src="@{|/productos/imagen/${Producto.id}|}" alt="Imagen" class="d-block w-100"
+                                     width="350" height="350">
+                            </div>
+                            <div class="detail">
+                                <h2 class="fw-bold" th:text="${Producto.nombre}"></h2>
+                                <p class="text-justify" th:text="${Producto.descripcion}"></p>
+                                <h2 class="fw-bold" th:text="${Producto.precioUnitario}"></h2>
+                            </div>
 
-                            <img th:src="@{|/productos/imagen/${Producto.id}|}" alt="Imagen"  />
-                        </div>
+                            <!-- Botón "Añadir al menú" -->
+                            <button class="btn btn-dark" th:onclick="mostrarContador(this)">Añadir al menú</button>
 
-                        <div class="col-sm-12 col-lg-6">
-                            <h2 class="fw-bold fs-1" th:text="${Producto.nombre}"></h2>
-                            <p class="fw-semibold" th:text="${Producto.descripcion}"></p>
-                            <h2 class="fw-bold fs-1" th:text="${Producto.precioUnitario}"></h2>
+                            <!-- Contador oculto -->
+                            <div class="contador" style="display: none; background-color: black;">
+                                <span class="producto-seleccionado" style=" color: white;padding: 13px;"
+                                      onclick="cambiarCantidad(this, -1)">   -   </span>
+                                    <input class="producto-seleccionado" type="number" value="1" id="inpc-4"
+                                           style="width: 5rem; background-color: #00000; text-align: center; border: none; color: black; font-weight: 900; outline: none; user-select: none;"
+                                           readonly="">
+                                    <span class="producto-seleccionado" onclick="cambiarCantidad(this, 1)"
+                                          style=" color: white;padding: 13px;">  +  </span>
+                                </div>
+                            </div>
+
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!----------- menu END------------>
 
+
+    <!----------- menu END------------>
 
 
     <!-- BOTON WHATSAPP -->
@@ -158,7 +172,6 @@
     </div>
 
 
-
     <a id="arrowUp" href="#principio"> <img th:src="@{/assets/arrowUp.svg}" alt=""></a>
 
 
@@ -167,6 +180,34 @@
 <footer th:replace="~{components/footer :: footer}"></footer>
 
 </body>
+<script>
+    function mostrarContador(boton) {
+        var contador = boton.nextElementSibling;
+        contador.style.display = 'block';
+        boton.style.display = 'none'; // Ocultar el botón "Añadir al menú"
+    }
+
+    function cambiarCantidad(elemento, cambio) {
+        var inputCantidad = elemento.parentNode.querySelector('input');
+        var cantidad = parseInt(inputCantidad.value) + cambio;
+
+        if (cantidad < 0) {
+            cantidad = 0; // No permitir cantidades menores a 0
+        }
+
+        inputCantidad.value = cantidad;
+
+        // Mostrar el botón "Añadir al menú" si la cantidad es 0
+        var boton = inputCantidad.parentNode.previousElementSibling;
+        if (cantidad === 0) {
+            boton.style.display = 'block';
+            elemento.parentNode.style.display = 'none';
+        } else {
+            boton.style.display = 'none';
+        }
+    }
+
+</script>
 
 
 <script th:src="@{/js/arrowUp.js}"></script>
