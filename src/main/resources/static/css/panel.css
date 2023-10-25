@@ -43,10 +43,10 @@ section .btn-listar, .btn-cargar{
     padding: 4.5rem;
     border-radius: 0.2rem;
 }
-}
 
 section .btn-cargar{
-  top: 1rem;}
+  top: 1rem;
+}
 
 
 section .btn {
@@ -60,9 +60,10 @@ section .btn {
   padding: 0 .5rem 0 .5rem;
   border-radius: .2rem;
 }
+
 section .btn-listar:hover, .btn-cargar:hover,
 section .btn:hover {
-  background-color: #808080
+  background-color: #808080;
   color: #f3f2f1;
 }
 
