@@ -7,11 +7,11 @@ $(document).ready(function () {
     var precioTotal = cantidad * precioUnitario;
 
     var data = {
-      fk_id_pedido: 1, // valor de prueba
-      fk_id_producto: 2, // valor de prueba
+      fk_id_pedido: 1, // valores de prueba
+      fk_id_producto: 2, // valores de prueba
       cantidad: cantidad,
       precioTotal: precioTotal,
-      precio_envio: 0, // valor de prueba
+      precio_envio: 0, // valores de prueba
     };
 
     $.ajax({

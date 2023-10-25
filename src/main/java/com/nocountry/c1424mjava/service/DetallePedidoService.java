@@ -9,4 +9,5 @@ public interface DetallePedidoService {
     List<DetallePedido> getAllDetallePedido();
     DetallePedido save(DetallePedido detallePedido);
     
+    
 }
