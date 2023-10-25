@@ -7,6 +7,6 @@ public interface DetallePedidoService {
     
     DetallePedido getDetallePedido(int id);
     List<DetallePedido> getAllDetallePedido();
-    
+    DetallePedido save(DetallePedido detallePedido);
     
 }

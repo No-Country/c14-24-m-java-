@@ -25,6 +25,11 @@ public class DetallePedidoServiceImpl implements DetallePedidoService {
     public List<DetallePedido> getAllDetallePedido() {
         return detallePedidoRepository.findAll();
     }
+
+    @Override
+    public DetallePedido save(DetallePedido detallePedido) {
+        return detallePedidoRepository.save(detallePedido);
+    }
     
     
 }
