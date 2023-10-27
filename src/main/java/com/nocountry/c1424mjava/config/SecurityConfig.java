@@ -25,7 +25,6 @@ public class SecurityConfig{
     @Autowired
     private AdminService adminService;
 
-
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -35,10 +34,8 @@ public class SecurityConfig{
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable)// se desactivo para hacer pruebas en postman
                 .authorizeHttpRequests(auth  -> auth
-                        .requestMatchers("/css/*", "/images/", "/js/", "/*").permitAll()
-                        .requestMatchers("/panel").hasAnyRole("ADMIN")
+                        .requestMatchers("/assets/*", "/css/*", "/images/*", "/js/*").permitAll()
                         .anyRequest().authenticated()
-
                 )
                 .formLogin(formLogin -> formLogin
                         .loginPage("/login")
@@ -59,8 +56,8 @@ public class SecurityConfig{
                 )
                 .sessionManagement((session) -> session
                         .sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
-                        .invalidSessionUrl("/invalidSession")//invalida la sesion cuando no se utiliza en tiempo determinado
-                        .maximumSessions(1)//Numero de sesiones permitidas
+                        .invalidSessionUrl("/invalidSession")
+                        .maximumSessions(1)
                         .maxSessionsPreventsLogin(true)
                         .sessionRegistry(sessionRegistry())
                 )
