@@ -18,14 +18,15 @@ function mostrarContador(boton) {
     } else {
         carrito.push({
             nombre: nombreProducto,
-            precioUnitario: precioProducto,
+            precioUnitario: parseFloat(precioProducto),
             cantidad: 1,
-            subtotal: precioProducto,
+            subtotal: parseFloat(precioProducto),
         });
     }
 
     console.log(carrito);
-
+    const total = calcularTotal(carrito);
+    console.log('Total:', total);
     // Habilitar el botón de "Finalizar Compra" si hay productos en el carrito
     var finalizarCompraBtn = document.getElementById('finalizarCompraBtn');
     finalizarCompraBtn.disabled = carrito.length === 0;
@@ -63,12 +64,17 @@ function cambiarCantidad(elemento, cambio) {
             var precioProducto = boton.parentNode.querySelector('.precio').textContent;
             var subtotal = cantidad * parseFloat(precioProducto); // Calcula el subtotal
             productoExistente.subtotal = subtotal;
+            const total = calcularTotal(carrito);
+            console.log('Total:', total);
         }
     }
 }
 
-
-
-
-
+function calcularTotal(carrito) {
+    let total= 0;
+    for (const producto of carrito) {
+        total += producto.subtotal;
+    }
+    return total;
+}
 
