@@ -37,15 +37,15 @@
 </body>
 </html>
 
-Link de la aplicación: -> ![imagen](https://github.com/No-Country/c14-24-m-java-/assets/144521724/3508c14a-e5c6-4a1b-afe3-1a19fc415911) https://nocountryc1424mjava.onrender.com/
+Link de la aplicación: -> https://nocountryc1424mjava.onrender.com/
 
-Tecnologías utilizadas: ->![imagen](https://github.com/No-Country/c14-24-m-java-/assets/144521724/1c20eea5-a795-40e2-940d-28da8df578e7) Java
-                        ->![imagen](https://github.com/No-Country/c14-24-m-java-/assets/144521724/94853234-be2f-438f-b21d-91ca66b463bd) Springboot
-                        ->![imagen](https://github.com/No-Country/c14-24-m-java-/assets/144521724/ccf48056-e8ac-4f97-ba20-2b63a5b97783) Thymeleaf
-                        ->![imagen](https://github.com/No-Country/c14-24-m-java-/assets/144521724/3827fd57-4528-46fe-88ec-785f03b7f480) Docker
-                        ->![imagen](https://github.com/No-Country/c14-24-m-java-/assets/144521724/4009f112-d791-449a-aed7-52b6f524b601) Javascript
+Tecnologías utilizadas: -> Java
+                        -> Springboot
+                        -> Thymeleaf
+                        -> Docker 
+                        -> Javascript
                         
-Integrantes: -> Betty Quevedo Gomez (Backend-Frontend)
-             -> Tatiana Gutierrez (Backend-Frontend)
+Integrantes: -> Betty Quevedo Gómez (Backend-Frontend)
+             -> Tatiana Gutiérrez (Backend-Frontend)
              -> Federico Pierrestegui (Backend-Frontend)
              
