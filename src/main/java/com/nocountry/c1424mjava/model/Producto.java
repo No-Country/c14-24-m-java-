@@ -3,6 +3,7 @@ package com.nocountry.c1424mjava.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.annotations.Type;
 
 import java.math.BigDecimal;
 
@@ -21,8 +22,7 @@ public class Producto {
     private String categoria;
     @Column(name = "stock")
     private int stock;
-    @Lob
-    @Column(name = "imagen", columnDefinition = "BYTEA")
+    @Column(name = "imagen")
     private byte[] imagen;
 
 
