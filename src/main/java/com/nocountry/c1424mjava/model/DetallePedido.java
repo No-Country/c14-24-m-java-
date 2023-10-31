@@ -3,7 +3,9 @@ package com.nocountry.c1424mjava.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
-@Entity @Data @Table(name = "Detalle_pedido")
+import java.math.BigDecimal;
+
+@Entity @Data @Table(name = "detalle_pedido")
 public class DetallePedido {
     
     @Id
@@ -16,8 +18,8 @@ public class DetallePedido {
     @Column(name = "cantidad")
     private Integer cantidad;
     @Column(name = "precio_total")
-    private double precioTotal;
+    private BigDecimal precioTotal;
     @Column(name = "precio_envio")
-    private double precio_envio;
+    private BigDecimal precio_envio;
     
 }

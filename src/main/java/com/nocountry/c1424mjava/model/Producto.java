@@ -4,6 +4,8 @@ package com.nocountry.c1424mjava.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.math.BigDecimal;
+
 @Entity @Data @Table(name = "producto")
 public class Producto {
     @Id
@@ -14,13 +16,13 @@ public class Producto {
     @Column(name = "descripcion")
     private String descripcion;
     @Column(name = "precio_unitario")
-    private double precioUnitario;
+    private BigDecimal precioUnitario;
     @Column(name = "categoria")
     private String categoria;
     @Column(name = "stock")
     private int stock;
     @Lob
-    @Column(name = "imagen", columnDefinition = "MEDIUMBLOB")
+    @Column(name = "imagen", columnDefinition = "BYTEA")
     private byte[] imagen;
 
 

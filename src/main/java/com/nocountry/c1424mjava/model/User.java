@@ -10,23 +10,23 @@ import lombok.*;
 @NoArgsConstructor
 @ToString
 @Entity
-@Table(name = "User")
+@Table(name = "usuario")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "Name", length = 20, nullable = false)
+    @Column(name = "name", length = 20, nullable = false)
     private String name;
 
     // TODO: Manejar email invalido
     @Email
-    @Column(name = "Email", length = 100, nullable = false, unique=true)
+    @Column(name = "email", length = 100, nullable = false, unique=true)
     private String email;
 
     //@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @Column(name = "Password", nullable = false)
+    @Column(name = "password", nullable = false)
     private String password;
 
     /*
