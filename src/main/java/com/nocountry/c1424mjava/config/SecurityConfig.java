@@ -35,6 +35,7 @@ public class SecurityConfig{
         http.csrf(AbstractHttpConfigurer::disable)// se desactivo para hacer pruebas en postman
                 .authorizeHttpRequests(auth  -> auth
                         .requestMatchers("/assets/*", "/css/*", "/images/*", "/js/*").permitAll()
+                        .requestMatchers("/productos/imagen/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin(formLogin -> formLogin

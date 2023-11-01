@@ -18,7 +18,7 @@
     <link rel="stylesheet" th:href="@{/css/menu.css}">
     <link rel="stylesheet" th:href="@{/css/footer.css}">
     <link rel="stylesheet" th:href="@{/css/whats.css}">
-
+    <link rel="stylesheet" th:href="@{/css/fincompra.css}">
 
     <title>PipiCucu FOOD</title>
 </head>
@@ -90,7 +90,7 @@
                             <div class="detail">
                                 <h2 class="fw-bold" th:text="${Producto.nombre}"></h2>
                                 <p class="text-justify" th:text="${Producto.descripcion}"></p>
-                                <h2 class="fw-bold" th:text="${Producto.precioUnitario}"></h2>
+                                <h2 class="precio" th:text="${Producto.precioUnitario}">$ </h2>
                             </div>
 
                             <!-- Botón "Añadir al menú" -->
@@ -100,19 +100,113 @@
                             <div class="contador" style="display: none; background-color: black; margin-right: 220px">
                                 <span class="producto-seleccionado" style=" color: white;padding: 13px;"
                                       onclick="cambiarCantidad(this, -1)">   -   </span>
-                                    <input class="producto-seleccionado" type="number" value="1" id="inpc-4"
-                                           style="width: 5rem; background-color: #00000; text-align: center; border: none; color: black; font-weight: 900; outline: none; user-select: none;"
-                                           readonly="">
-                                    <span class="producto-seleccionado" onclick="cambiarCantidad(this, 1)"
-                                          style=" color: white;padding: 13px;">  +  </span>
-                                </div>
+                                <input class="producto-seleccionado" type="number" value="1" id="inpc-4"
+                                       style="width: 5rem; background-color: #00000; text-align: center; border: none; color: black; font-weight: 900; outline: none; user-select: none;"
+                                       readonly="">
+                                <span class="producto-seleccionado" onclick="cambiarCantidad(this, 1)"
+                                      style=" color: white;padding: 13px;">  +  </span>
                             </div>
-
-
                         </div>
+
+
                     </div>
                 </div>
+
+                <button id="finalizarCompra" class="btn btn-dark" >Finalizar Compra</button>
+
+                <div class="contenedor" id="resumenCompra" style="display: none;background-color: #ffffffd4;">
+                    <div class="contenedor__titulo">
+                        <p>Resumen de Compra</p>
+                    </div>
+
+                    <ul id="listaProductos">
+                        <!-- Aquí se mostrarán los productos seleccionados -->
+                    </ul>
+                    <p>Subtotal: <span id="subtotal">0</span></p>
+                    <p>Total: <span id="total">0</span></p>
+
+                    <!-- Tarjetas para seleccionar método de pago y método de envío -->
+                    <div id="seleccionMetodoPago">
+                        <div class="contenedor__metodos">
+                            <div class="contendor__metodos__col">
+                                <p>Método de pago:</p>
+                                <div class="opciones row__efectivo">
+                                    <label for="checkbox-efectivo" class="elemento-seleccionable">
+                                        <input type="checkbox" id="checkbox-efectivo" name="metodo-pago"
+                                               value="efectivo">
+                                        <span class="checkmark efectivo"></span>
+                                        Efectivo
+                                    </label>
+                                </div>
+                                <div class="opciones row__transferencia">
+                                    <label for="checkbox-transferencia" class="elemento-seleccionable">
+                                        <input type="checkbox" id="checkbox-transferencia" name="metodo-pago"
+                                               value="transferencia">
+                                        <span class="checkmark transferencia"></span>
+                                        Transferencia
+                                    </label>
+                                </div>
+                                <div class="opciones row__mercadoPago">
+                                    <label for="checkboxMP" class="elemento-seleccionable">
+                                        <input type="checkbox" id="checkboxMP" name="metodo-pago" value="mercadoPago">
+                                        <span class="checkmark mp"></span>
+                                        MercadoPago
+                                    </label>
+
+                                </div>
+                            </div>
+                            <div class="contendor__metodos__col">
+                                <p>Modo de entrega:</p>
+                                <div class="opciones row__local">
+                                    <label for="checkbox-retiro" class="elemento-seleccionable">
+                                        <input type="checkbox" id="checkbox-retiro" name="modo-entrega"
+                                               value="retiroPorLocal">
+                                        <span class="checkmark retiro"></span>
+                                        Retiro por el local
+                                    </label>
+                                    <div class="label-descripcion">
+                                    </div>
+
+                                </div>
+
+                                <div class="opciones row__domicilio">
+                                    <label for="checkbox-envio" class="elemento-seleccionable">
+                                        <input type="checkbox" id="checkbox-envio" name="modo-entrega"
+                                               value="envioDomicilio">
+                                        <span class="checkmark envio"></span>
+                                        Envío a domicilio
+                                    </label>
+                                    <div class="label-descripcion">
+
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                        <div class="contenedor__mensaje"> Enviaremos tu pedido por whatsApp!
+                        </div>
+
+                        <div class="contenedor__botones">
+                            <button id="finalizarCompraBtn" class="btn btn-dark" type="button"
+                                    onclick="finalizarCompra()" disabled>
+                                <div>
+                                    Finalizar compra
+                                    <img src="../assets/whatsapp_logo.svg" alt="logo whatsapp">
+                                    <img src="../assets/logoWappColor.svg" alt="logo whatsapp">
+                                </div>
+                            </button>
+                            <button class="btn btn-dark" style="margin-top: 15px;">Seguir comprando</button>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
+        </div>
+        </div>
         </div>
     </section>
 
@@ -180,36 +274,11 @@
 <footer th:replace="~{components/footer :: footer}"></footer>
 
 </body>
-<script>
-    function mostrarContador(boton) {
-        var contador = boton.nextElementSibling;
-        contador.style.display = 'block';
-        boton.style.display = 'none'; // Ocultar el botón "Añadir al menú"
-    }
-
-    function cambiarCantidad(elemento, cambio) {
-        var inputCantidad = elemento.parentNode.querySelector('input');
-        var cantidad = parseInt(inputCantidad.value) + cambio;
-
-        if (cantidad < 0) {
-            cantidad = 0; // No permitir cantidades menores a 0
-        }
-
-        inputCantidad.value = cantidad;
-
-        // Mostrar el botón "Añadir al menú" si la cantidad es 0
-        var boton = inputCantidad.parentNode.previousElementSibling;
-        if (cantidad === 0) {
-            boton.style.display = 'block';
-            elemento.parentNode.style.display = 'none';
-        } else {
-            boton.style.display = 'none';
-        }
-    }
-
-</script>
-
-
+<script th:src="@{/js/carrito.js}"></script>
 <script th:src="@{/js/arrowUp.js}"></script>
+<script th:src="@{/js/controller/comprasController.js}"></script>
+<!--<script th:src="@{/js/compras_productos.js}"></script>-->
+<!--<script type="text/javascript" th:src="@{/js/card_products.js}"></script>-->
+<!--<script th:src="@{/js/controller/mostrarProductosCompradosController.js}"></script>-->
 
 </html>
