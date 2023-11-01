@@ -37,8 +37,8 @@
       <p class=" titulo fs-1 fw-bold text-uppercase">Lista de Productos</p>
     </div>
     <div class="row">
-      <div class="col col-12">
-        <table class="table">
+      <div class="col col-12" id="container-table">
+        <table class="table align-middle table-hover">
           <thead class="text-center fs-5">
           <tr>
             <th scope="col">ID</th>
@@ -46,23 +46,23 @@
             <th scope="col">Nombre</th>
             <th scope="col">Descripción</th>
             <th scope="col">Precio Unitario</th>
-            <th scope="col">Categoria</th>
+            <th scope="col">Categoría</th>
             <th scope="col">Stock</th>
             <th scope="col">Acciones</th>
           </tr>
           </thead>
           <tbody id="lista-imagenes">
           <tr th:each="Producto : ${Producto}">
-            <td th:text="${Producto.id}" class="text-center"></td>
-            <td>
+            <td data-title="ID" th:text="${Producto.id}" class="text-center"></td>
+            <td data-title="Imagen" id="table-data-img">
               <img th:src="@{|/productos/imagen/${Producto.id}|}" alt="Imagen" width="100px" />
             </td>
-            <td th:text="${Producto.nombre}" class="fs-5"></td>
-            <td th:text="${Producto.descripcion}" class="fs-5"></td>
-            <td th:text="${Producto.precioUnitario}" class="fs-5"></td>
-            <td th:text="${Producto.categoria}" class="fs-5"></td>
-            <td th:text="${Producto.stock}" class="fs-5"></td>
-            <td>
+            <td data-title="Nombre" th:text="${Producto.nombre}" class="fs-5"></td>
+            <td data-title="Descripción" th:text="${Producto.descripcion}" class="fs-5"></td>
+            <td data-title="Precio Unitario" th:text="${Producto.precioUnitario}" class="fs-5"></td>
+            <td data-title="Categoría" th:text="${Producto.categoria}" class="fs-5"></td>
+            <td data-title="Stock" th:text="${Producto.stock}" class="fs-5"></td>
+            <td data-title="Acciones" id="table-data-acciones" class="text-center" >
               <a th:href="'/productos/actualizar_producto/' + ${Producto.id}">
                 <button type="button" class="btn">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"

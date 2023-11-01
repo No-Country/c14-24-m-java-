@@ -1,10 +1,14 @@
 section {
-  height: calc(100vh - 5rem);
   width: 100%;
   position: relative;
   top: 0;
   left: 0;
   user-select: none;
+}
+
+.section-panel {
+  height: 70vh;
+  flex-wrap: wrap;
 }
 
 section .titulo{
@@ -30,7 +34,7 @@ section .btn-listar, .btn-cargar{
   border-radius: .2rem;
 }
 
-
+/* Botones tipo tarjeta que están en el panel */
 .btn-listare, .btn-cargare {
     width: 296px;
     height: -1px;
@@ -79,5 +83,46 @@ section .btn:hover {
     margin-right: 10px;
 }
 
+#table-data-img, #table-data-acciones {
+    width: 10%
+}
+
+@media only screen and (max-width:500px) {
+
+    #container-table {
+        margin-top: 35px;
+    }
+
+    #container-table tbody,
+    #container-table tr,
+    #container-table td {
+        display: block;
+    }
+    #container-table thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    #container-table td {
+        width: auto;
+        position: relative;
+        padding-left: 50%;
+        border: none;
+        border-bottom: 1px solid #eee;
+    }
+    #container-table td:before {
+        content: attr(data-title);
+        position: absolute;
+        left: 6px;
+        font-weight: bold;
+    }
+    #container-table tr {
+        margin-bottom: 13px;
+    }
+
+    .btn-cargar{
+        margin-top: 25px;
+    }
+}
 
 
