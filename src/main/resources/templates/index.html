@@ -34,50 +34,59 @@
 
     <!-----------restorantee------------>
     <section class="bannerPIPICUCU">
-     </section>
+    </section>
 
     <section id="description"
              class="container-fluid d-flex flex-column justify-content-center  align-items-center my-3">
+        <!--        <h1 class="fw-bold py-4">PIPICUCUFOOD</h1>-->
+        <p class="fs-4 fw-bold text-center px-3" style="color: goldenrod">
+            <br>
+            <br>
+            ¡Che, bienvenidos a PipicucuFood! Querés comer rico sin salir de casa??? <br>
+            PipicucuFood es la plataforma líder de pedidos de comida en línea.<br>
+            Conectamos a los "pibes" hambrientos con los "choripaneros" de la esquina.
 
-        <p class="fs-6 fw-bold text-center px-3">
-        <p>¡Che, bienvenidos a PipicucuFood! La mejor plataforma para comer rico sin salir de casa.</p>
-        <p>PipicucuFood es la plataforma líder de pedidos de comida en línea.
-            Conectamos a los "pibes" hambrientos con los "choripaneros" de la esquina.</p>
 
-        <ul>
+        <ul class="fs-4 fw-bold px-3" style="color: goldenrod">
             <li>Pedidos fáciles como ganar el envido con 33 de mano.</li>
             <li>Administrá tu carrito como un campeón de fútbol.</li>
             <li>¡Lo último en variedad de comidas!</li>
             <li>¡Promos que ni Messi puede resistir!</li>
         </ul>
 
-        <h2></h2>
-
-
-        <h1 class="fw-normal">COMO LO HACEMOS?</h1>
-        <p class="fs-6 fw-bold text-center px-3">
-        <p>Facil... Mirá...</p>
-
-        <li>Elegí tus platos, bebidas, y postre como si fuera tu último asado.</li>
-        <li>Elegí como vas a pagarlo y decinos si preferis pasarlo a buscar por el local o que te lo llevemos a tu
-            casa     </li>
-        <li>y listo! asi de fácil, así de sencillo</li>
-        </ol>
-        <p>PipicucuFood se rige por el "Código de buena onda criolla". No seas amargo y disfrutá.</p> .</p>
         </p>
+
+
+        <h2 class="fw-normal">COMO LO HACEMOS?</h2>
+        <p class="fs-4 fw-bold text-center px-3" style="color: goldenrod">
+            Facil... Mirá...
+
+        <ol class="fs-4 fw-bold px-3" style="color: goldenrod">
+
+            <li>Elegí tus platos, bebidas, y postre como si fuera tu último asado.</li>
+            <li>Elegí como vas a pagarlo y decinos si preferis pasarlo a buscar por el local o que te lo llevemos a tu
+                casa
+            </li>
+
+            <li>y listo! asi de fácil, así de sencillo</li>
+        </ol>
+        <p class="fs-4 fw-bold text-center px-3" style="color: goldenrod">
+            <br>
+            PipicucuFood se rige por el "Código de buena onda criolla". No seas amargo y disfrutá.</p>
+
 
     </section>
     <!----------- restorante END------------>
 
     <!-----------MENU------------>
 
-    <section id="menus" class="container-fluid d-flex flex-column justify-content-center align-items-center my-4"
+    <section id="menu" class="container-fluid d-flex flex-column justify-content-center align-items-center my-4"
              style="margin-top: 500px;">
-        <h1 id="menu" class="fw-bold py-4 text-center">MENU</h1>
+<!--        <h1 id="menu" class="fw-bold py-4 text-center">Menú</h1>-->
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-lg-4" th:each="Producto : ${Producto}">
-                    <div class="box shadow p-4 bg-light">
+                    <div class="box shadow p-4 bg-light"  style="margin-top:30px" >
                         <div class="box">
                             <div class="imgbox">
                                 <img th:src="@{|/productos/imagen/${Producto.id}|}" alt="Imagen" class="d-block w-100"

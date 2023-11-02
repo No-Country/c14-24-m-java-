@@ -1,6 +1,6 @@
 /* @import url('https://fonts.googleapis.com/css2?family=PT+Sans&family=Roboto:wght@300;400&display=swap'); */
 body {
-    background-color: #ba0909e3;
+    background-color: #540707;
  /*   font-family: 'wire one', serif;*/
     font-family: 'Calibri', sans-serif;
     margin: 0;
@@ -18,7 +18,7 @@ body {
     background-attachment: fixed;
 	height:  125vh;
     width: 100%;
-
+box-shadow: 0px 25px 100px black;
     text-align: center;
 }
 

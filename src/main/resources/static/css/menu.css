@@ -13,13 +13,12 @@
 }
 
 
-#menus h1 {
+#menu h1 {
   color: #e0e0e0;
   font-size: 75px;
 }
 
 
-/*CARDS menus*/
 #menus .container .row .col .row-container{
   height: auto;
   border-radius: .5rem;
@@ -27,19 +26,20 @@
   cursor: pointer;
   user-select: none;
   transition: ease-in-out 1s;
+
 }
 
-#menus .container .row .col .row-container:hover{
+#menu .container .row .col .row-container:hover{
   transform: scale(1.1);
   box-shadow: 1px 12px  22px #2f4647;
   border: 0;
 }
 
-#menus .container .row .col p {
+#menu .container .row .col p {
 letter-spacing: 1px;
 }
 
-#menus .container .row .col img {
+#menu .container .row .col img {
   height: 100%;
   width: 100%;
   border-radius: 1rem;
