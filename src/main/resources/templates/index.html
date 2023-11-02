@@ -11,8 +11,9 @@
             integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
             crossorigin="anonymous"></script>
     <link href='https://fonts.googleapis.com/css?family=Wire+One|Raleway:300' rel='stylesheet' type='text/css'>
-
-
+    <!--    <link href='https: //fonts.googleapis.com/css2? family= Signika & display=swap' rel='stylesheet' type='text/css'>-->
+    <!--    <link href='https://fonts.googleapis.com/css2?family=Rowdies&display=swap' rel='stylesheet' type='text/css'>-->
+    <!--    <link href='https://fonts.googleapis.com/css2?family=Lilita+One' rel='stylesheet' type='text/css'>-->
     <link rel="stylesheet" th:href="@{/css/styles.css}">
     <link rel="stylesheet" th:href="@{/css/header.css}">
     <link rel="stylesheet" th:href="@{/css/menu.css}">
@@ -32,15 +33,17 @@
 
 
     <!-----------restorantee------------>
+    <section class="bannerPIPICUCU">
+     </section>
+
     <section id="description"
              class="container-fluid d-flex flex-column justify-content-center  align-items-center my-3">
-        <h1 class="fw-bold py-4">PIPICUCUFOOD</h1>
-        <p class="fs-4 fw-bold text-center px-3">
+
+        <p class="fs-6 fw-bold text-center px-3">
         <p>¡Che, bienvenidos a PipicucuFood! La mejor plataforma para comer rico sin salir de casa.</p>
         <p>PipicucuFood es la plataforma líder de pedidos de comida en línea.
             Conectamos a los "pibes" hambrientos con los "choripaneros" de la esquina.</p>
 
-        <h2>Características Clave</h2>
         <ul>
             <li>Pedidos fáciles como ganar el envido con 33 de mano.</li>
             <li>Administrá tu carrito como un campeón de fútbol.</li>
@@ -51,33 +54,26 @@
         <h2></h2>
 
 
-        <h2 class="fw-normal">COMO LO HACEMOS?</h2>
-        <p class="fs-4 fw-bold text-center px-3">
+        <h1 class="fw-normal">COMO LO HACEMOS?</h1>
+        <p class="fs-6 fw-bold text-center px-3">
         <p>Facil... Mirá...</p>
 
         <li>Elegí tus platos, bebidas, y postre como si fuera tu último asado.</li>
         <li>Elegí como vas a pagarlo y decinos si preferis pasarlo a buscar por el local o que te lo llevemos a tu
-            casa
-        </li>
-
-        <li>y listo! asi de fácul, así de sencillo</li>
+            casa     </li>
+        <li>y listo! asi de fácil, así de sencillo</li>
         </ol>
-
-
         <p>PipicucuFood se rige por el "Código de buena onda criolla". No seas amargo y disfrutá.</p> .</p>
-
         </p>
-
 
     </section>
     <!----------- restorante END------------>
-
 
     <!-----------MENU------------>
 
     <section id="menus" class="container-fluid d-flex flex-column justify-content-center align-items-center my-4"
              style="margin-top: 500px;">
-        <h1 class="fw-bold py-4 text-center">MENU</h1>
+        <h1 id="menu" class="fw-bold py-4 text-center">MENU</h1>
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-lg-4" th:each="Producto : ${Producto}">
@@ -112,7 +108,7 @@
                     </div>
                 </div>
 
-                <button id="finalizarCompra" class="btn btn-dark" >Finalizar Compra</button>
+                <button id="finalizarCompra" class="btn btn-dark" style="margin-top: 20px;">Finalizar Compra</button>
 
                 <div class="contenedor" id="resumenCompra" style="display: none;background-color: #ffffffd4;">
                     <div class="contenedor__titulo">
@@ -122,8 +118,8 @@
                     <ul id="listaProductos">
                         <!-- Aquí se mostrarán los productos seleccionados -->
                     </ul>
-                    <p>Subtotal: <span id="subtotal">0</span></p>
-                    <p>Total: <span id="total">0</span></p>
+
+                    <p>Total de la compra: $ <span id="total">0</span></p>
 
                     <!-- Tarjetas para seleccionar método de pago y método de envío -->
                     <div id="seleccionMetodoPago">
@@ -133,7 +129,7 @@
                                 <div class="opciones row__efectivo">
                                     <label for="checkbox-efectivo" class="elemento-seleccionable">
                                         <input type="checkbox" id="checkbox-efectivo" name="metodo-pago"
-                                               value="efectivo">
+                                               value="Efectivo">
                                         <span class="checkmark efectivo"></span>
                                         Efectivo
                                     </label>
@@ -141,14 +137,14 @@
                                 <div class="opciones row__transferencia">
                                     <label for="checkbox-transferencia" class="elemento-seleccionable">
                                         <input type="checkbox" id="checkbox-transferencia" name="metodo-pago"
-                                               value="transferencia">
+                                               value="Transferencia">
                                         <span class="checkmark transferencia"></span>
                                         Transferencia
                                     </label>
                                 </div>
                                 <div class="opciones row__mercadoPago">
                                     <label for="checkboxMP" class="elemento-seleccionable">
-                                        <input type="checkbox" id="checkboxMP" name="metodo-pago" value="mercadoPago">
+                                        <input type="checkbox" id="checkboxMP" name="metodo-pago" value="MercadoPago">
                                         <span class="checkmark mp"></span>
                                         MercadoPago
                                     </label>
@@ -160,7 +156,7 @@
                                 <div class="opciones row__local">
                                     <label for="checkbox-retiro" class="elemento-seleccionable">
                                         <input type="checkbox" id="checkbox-retiro" name="modo-entrega"
-                                               value="retiroPorLocal">
+                                               value="retiroPorLocal" data-label="Retiro por el Local">
                                         <span class="checkmark retiro"></span>
                                         Retiro por el local
                                     </label>
@@ -172,7 +168,7 @@
                                 <div class="opciones row__domicilio">
                                     <label for="checkbox-envio" class="elemento-seleccionable">
                                         <input type="checkbox" id="checkbox-envio" name="modo-entrega"
-                                               value="envioDomicilio">
+                                               value="envioDomicilio" data-label="Envío a domicilio">
                                         <span class="checkmark envio"></span>
                                         Envío a domicilio
                                     </label>
@@ -198,7 +194,7 @@
                                     <img src="../assets/logoWappColor.svg" alt="logo whatsapp">
                                 </div>
                             </button>
-                            <button class="btn btn-dark" style="margin-top: 15px;">Seguir comprando</button>
+
                         </div>
                     </div>
 
@@ -254,7 +250,7 @@
                         </span>
                 </div>
             </div>
-            <a class="chat-button" href="https://api.whatsapp.com/send?phone=5492616999808"
+            <a class="chat-button" href="https://api.whatsapp.com/send?phone=5493513364508"
                rel="nofollow noreferrer" target="_blank">
                 <span>Enviar</span>
                 <svg viewBox="0 0 32 32">
@@ -276,9 +272,5 @@
 </body>
 <script th:src="@{/js/carrito.js}"></script>
 <script th:src="@{/js/arrowUp.js}"></script>
-<script th:src="@{/js/controller/comprasController.js}"></script>
-<!--<script th:src="@{/js/compras_productos.js}"></script>-->
-<!--<script type="text/javascript" th:src="@{/js/card_products.js}"></script>-->
-<!--<script th:src="@{/js/controller/mostrarProductosCompradosController.js}"></script>-->
 
 </html>
