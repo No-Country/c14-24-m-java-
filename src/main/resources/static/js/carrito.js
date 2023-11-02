@@ -15,7 +15,11 @@ function mostrarContador(boton) {
     // Verificar si el producto ya está en el carrito y actualizar la cantidad en lugar de agregar uno nuevo
     const productoExistente = carrito.find(item => item.nombre === nombreProducto);
     if (productoExistente) {
-        productoExistente.cantidad++;
+
+        carrito.push({
+           cantidad:productoExistente.cantidad++,
+                });
+
     } else {
         carrito.push({
             nombre: nombreProducto,
@@ -24,7 +28,6 @@ function mostrarContador(boton) {
             subtotal: parseFloat(precioProducto),
 
         });
-
     }
 
    agregarProductoAlResumen(carrito);
@@ -69,7 +72,7 @@ function cambiarCantidad(elemento, cambio) {
             var subtotal = cantidad * parseFloat(precioProducto); // Calcula el subtotal
             productoExistente.subtotal = subtotal;
             const total = calcularTotal(carrito);
-                console.log('Total en cambiarCantidad:', total);
+            agregarProductoAlResumen();
         }
     }
 }
