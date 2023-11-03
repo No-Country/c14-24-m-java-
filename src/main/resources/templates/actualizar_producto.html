@@ -28,7 +28,7 @@
         <div class="row container-fluid d-flex justify-content-center py-3">
             <div class="form-contenedor col-11 col-md-6 col-lg-8 mb-lg-3 rounded">
                 <div class="row">
-                    <p class="titulo fs-1 fw-bold text-uppercase">Actualizar Producto</p>
+                    <p class="titulo fs-1 fw-bold text-uppercase" style="color:white">Actualizar Producto</p>
                 </div>
                 <div class="row">
                     <form id="updateForm" th:action="@{'/productos/actualizar_producto/' + ${Producto.id}}"
@@ -38,31 +38,31 @@
                         <input type="hidden" name="id" th:value="${Producto.id}" />
 
                         <div class="mb-1">
-                            <label class="fs-4 fw-semibold" for="nombre">Nombre del Producto</label>
+                            <label class="fs-4 fw-semibold" style="color:white" for="nombre">Nombre del Producto</label>
                             <input type="text" name="nombre" id="nombre" class="form-control fs-4"
                                    th:value="${Producto.nombre}" placeholder="Nombre" required>
                         </div>
 
                         <div class="mb-3">
-                            <label class="fs-4 fw-semibold" for="desc">Descripción del Producto</label>
+                            <label class="fs-4 fw-semibold" style="color:white" for="desc">Descripción del Producto</label>
                             <textarea class="form-control" name="descripcion" id="desc" cols="10" rows="3"
                                       required th:text="${Producto.descripcion}"></textarea>
                         </div>
 
                         <div class="mb-3">
-                            <label class="fs-4 fw-semibold" for="precio">Precio</label>
+                            <label class="fs-4 fw-semibold" style="color:white" for="precio">Precio</label>
                             <input type="text" name="precioUnitario" id="precio" class="form-control fs-4"
                                    th:value="${Producto.precioUnitario}" required>
                         </div>
 
                         <div class="mb-3">
-                            <label class="fs-4 fw-semibold" for="stock">Stock</label>
+                            <label class="fs-4 fw-semibold" style="color:white" for="stock">Stock</label>
                             <input type="text" name="stock" id="stock" class "form-control fs-4"
                             th:value="${Producto.stock}" required>
                         </div>
 
                         <div class="mb-3">
-                            <label class="fs-4 fw-semibold" for="categoria">Categoría</label>
+                            <label class="fs-4 fw-semibold" style="color:white" for="categoria">Categoría</label>
                             <input type="text" name="categoria" id="categoria" class="form-control fs-4"
                                    th:value="${Producto.categoria}" required>
                         </div>
