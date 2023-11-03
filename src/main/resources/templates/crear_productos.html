@@ -20,7 +20,7 @@
     <link rel="stylesheet" th:href="@{/css/header.css}">
     <link rel="stylesheet" th:href="@{/css/panel.css}">
 
-    <script th:src="@{/js/panel.js}"></script>
+
 
 
     <!-- HABILITAR ESTILOS PARA VSC-->
@@ -44,7 +44,7 @@
         <div class="row container-fluid justify-content-center py-3">
             <div class=" form-contenedor  col-11 col-md-6 col-lg-8  mb-lg-3 rounded  ">
                 <div class="row">
-                    <p  class=" titulo fs-1 fw-bold text-uppercase">Cargar Productos</p>
+                    <p  class=" titulo fs-1 fw-bold text-uppercase" style="color:white" >Cargar Productos</p>
                 </div>
                 <div class="row">
                     <form id="photoForm" th:action="@{/productos/crear_productos.html}" method="post" enctype="multipart/form-data"
@@ -52,30 +52,30 @@
 
 
                         <div class="mb-1  ">
-                            <label class="fs-4 fw-semibold" for="nombre">Ingrese el nombre</label>
+                            <label class="fs-4 fw-semibold" style="color:white" for="nombre">Ingrese el nombre</label>
                             <input type="text" name="nombre" id="nombre" class="form-control fs-4"
                                    placeholder="Titulo" aria-label="Username" aria-describedby="user" required>
                         </div>
 
 
                         <div class="mb-3 ">
-                            <label class="fs-4 fw-semibold" for="desc">Ingrese descripcion del plato</label>
+                            <label class="fs-4 fw-semibold" style="color:white" for="desc">Ingrese descripcion del plato</label>
                             <textarea class="form-control" name="descripcion"
                                       id="desc" cols="10"rows="3"></textarea>
                         </div>
 
                         <div class="mb-3 ">
-                            <label class="fs-4 fw-semibold" for="desc">Ingrese precio</label>
+                            <label class="fs-4 fw-semibold" style="color:white" for="desc">Ingrese precio</label>
                             <textarea class="form-control" name="precioUnitario"
                                       id="desc" cols="10"rows="3"></textarea>
                         </div>
                         <div class="mb-3 ">
-                            <label class="fs-4 fw-semibold" for="desc">Ingrese Stock</label>
+                            <label class="fs-4 fw-semibold" style="color:white" for="desc">Ingrese Stock</label>
                             <textarea class="form-control" name="stock"
                                       id="desc" cols="10"rows="3"></textarea>
                         </div>
                         <div class="mb-3 ">
-                            <label class="fs-4 fw-semibold" for="desc">Ingrese categoria</label>
+                            <label class="fs-4 fw-semibold" style="color:white" for="desc">Ingrese categoria</label>
                             <textarea class="form-control" name="categoria"
                                       id="desc" cols="10"rows="3"></textarea>
                         </div>

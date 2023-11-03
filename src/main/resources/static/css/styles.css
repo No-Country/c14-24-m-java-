@@ -1,15 +1,26 @@
 /* @import url('https://fonts.googleapis.com/css2?family=PT+Sans&family=Roboto:wght@300;400&display=swap'); */
-
 body {
-    background-color: #2f1b03a8;
-    font-family: 'wire one', serif;
+    background-color: #540707;
+ /*   font-family: 'wire one', serif;*/
+    font-family: 'Calibri', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     min-height: 100vh;
 }
 
+.bannerPIPICUCU {
+    background-image: url(../images/PIPICUCUFOOD.png);
 
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+    background-attachment: fixed;
+	height:  125vh;
+    width: 100%;
+box-shadow: 0px 25px 100px black;
+    text-align: center;
+}
 
 .container {
   display: flex;
@@ -66,7 +77,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #ca942f;
+    background-color: #00000099;
     border-radius: 100%;
     position: fixed;
     bottom: 5rem;

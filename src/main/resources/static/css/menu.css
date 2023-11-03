@@ -1,11 +1,12 @@
 #description h1 {
-  color: #98032b;
+  color: #e0e0e0;
   font-size: 75px;
 }
 
 #description h2 {
-  color: #ca942f;
+  color: #ccb517;
   font-size: 65px;
+  text-shadow: 5px 5px 0px rgb(0 0 0 / 80%);
 }
 
 #description p {
@@ -13,35 +14,36 @@
 }
 
 
-#turf h1 {
-  color: #98032b;
+#menu h1 {
+  color: #e0e0e0;
   font-size: 75px;
 }
 
 
-/*CARDS TURF*/
-#turf .container .row .col .row-container{
+#menus .container .row .col .row-container{
   height: auto;
   border-radius: .5rem;
   margin: 2rem 0 2rem 0;
   cursor: pointer;
   user-select: none;
   transition: ease-in-out 1s;
-} 
 
-#turf .container .row .col .row-container:hover{
+}
+
+#menu .container .row .col .row-container:hover{
   transform: scale(1.1);
   box-shadow: 1px 12px  22px #2f4647;
   border: 0;
 }
 
-#turf .container .row .col p {
+#menu .container .row .col p {
 letter-spacing: 1px;
 }
 
-#turf .container .row .col img {
+#menu .container .row .col img {
   height: 100%;
   width: 100%;
   border-radius: 1rem;
   padding: .5rem;
 }
+

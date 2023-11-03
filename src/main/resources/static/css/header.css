@@ -37,7 +37,7 @@ header .navbar-brand img:hover {
 
 header .offcanvas {
   width: 78% !important;
-  background-color: rgba(47, 70, 71, 1) !important;
+  background-color: black !important;
   border-right: 2px solid #f3f2f1 !important;
 }
 
@@ -48,6 +48,11 @@ header .offcanvas .offcanvas-header img {
 
 header .offcanvas .offcanvas-header .btn-close {
   font-size: 1.4rem;
+}
+
+header .offcanvas-body {
+  justify-content: space-between;
+  align-items: center;
 }
 
 header .nav-item {

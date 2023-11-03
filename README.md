@@ -36,3 +36,16 @@
   <p>Gracias a los "asadores" que hicieron posible PipicucuFood y a vos por elegirnos.</p>
 </body>
 </html>
+
+Link de la aplicación: -> https://nocountryc1424mjava.onrender.com/
+
+Tecnologías utilizadas: -> Java
+                        -> Springboot
+                        -> Thymeleaf
+                        -> Docker 
+                        -> Javascript
+                        
+Integrantes: -> Betty Quevedo Gómez (Backend-Frontend)
+             -> Tatiana Gutiérrez (Backend-Frontend)
+             -> Federico Pierrestegui (Backend-Frontend)
+             
