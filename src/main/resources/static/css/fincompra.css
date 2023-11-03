@@ -34,7 +34,7 @@
     }
 }
 
-.contenedor__pedidos {
+/*.contenedor__pedidos {
     width: 100%;
     height: 20rem;
     overflow-y: scroll;
@@ -43,7 +43,32 @@
     gap: 1rem;
     padding: 1rem 0 1rem 0;
     margin: .5rem auto;
+}*/
+
+/* Estilo para los productos individuales en el resumen de compra */
+.producto {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    width: 228px;
+    box-shadow: 2px 2px 5px #888;
+    margin-right: 1rem;
+    background-color: #fff;
+    border-radius: 5px;
+    max-height: 255px;
 }
+
+/* Estilo para el contenedor de los productos */
+.contenedor__pedidos {
+  width: 100%;
+  height: 20rem;
+  overflow-y: auto; /* Agrega una barra de desplazamiento vertical si es necesario */
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  padding: 1rem 0 1rem 0;
+  margin: 0.5rem auto;
+}
+
 
 
 .contenedor__pedidos::-webkit-scrollbar {
@@ -54,7 +79,7 @@
 
 
 .contenedor__pedidos::-webkit-scrollbar-thumb {
-    background-color: #C4C754;
+    background-color: #000000;
     border-radius: 4px;
 }
 
@@ -249,7 +274,7 @@
 
 
 .contenedor__total {
-    text-align: end;
+    text-align: center;
     font-size: 1.5rem;
     font-weight: 600;
     line-height: 1.829rem;

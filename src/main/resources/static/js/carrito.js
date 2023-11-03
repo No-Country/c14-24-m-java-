@@ -11,22 +11,25 @@ function mostrarContador(boton) {
 
     var nombreProducto = boton.parentNode.querySelector('h2').textContent;
     var precioProducto = boton.parentNode.querySelector('.precio').textContent;
+    // Obtén la URL de la imagen del producto desde el botón
+    var productoImagen = boton.parentNode.querySelector('img');
+    var src = productoImagen.getAttribute('src');
+    // Obtener el id del producto desde el atributo data-id del botón
+    var id = boton.getAttribute('data-id');
 
     // Verificar si el producto ya está en el carrito y actualizar la cantidad en lugar de agregar uno nuevo
     const productoExistente = carrito.find(item => item.nombre === nombreProducto);
+
     if (productoExistente) {
-
-        carrito.push({
-           cantidad:productoExistente.cantidad++,
-                });
-
+        productoExistente.cantidad++;
     } else {
         carrito.push({
             nombre: nombreProducto,
             precioUnitario: parseFloat(precioProducto),
             cantidad: 1,
             subtotal: parseFloat(precioProducto),
-
+            imagen: src,
+            id: id, // Agregar el id del producto al objeto del carrito
         });
     }
 
@@ -72,7 +75,8 @@ function cambiarCantidad(elemento, cambio) {
             var subtotal = cantidad * parseFloat(precioProducto); // Calcula el subtotal
             productoExistente.subtotal = subtotal;
             const total = calcularTotal(carrito);
-            agregarProductoAlResumen();
+            agregarProductoAlResumen(carrito);
+
         }
     }
 }
@@ -101,20 +105,57 @@ function calcularTotal(carrito) {
                      finalizarCompraButton.style.display = "none";
                  });
 
-function agregarProductoAlResumen() {
-    // Recorre los elementos del carrito y muestra la información en el formato deseado
-    const listaProductos = document.getElementById('listaProductos');
-    listaProductos.innerHTML = ''; // Limpia la lista antes de agregar los nuevos productos
+const $contenedor__pedidos = document.getElementById("contenedor__pedidos");
+
+
+function agregarProductoAlResumen(carrito) {
+    const contenedorPedidos = document.getElementById("contenedor__pedidos");
+    contenedorPedidos.innerHTML = '';
 
     carrito.forEach(producto => {
-        const nuevoProducto = document.createElement('li');
-        nuevoProducto.textContent = `${producto.nombre} - ${producto.cantidad} unidades $${producto.subtotal}`;
-        listaProductos.appendChild(nuevoProducto);
+
+        const productoResumen = document.createElement('div');
+        productoResumen.className = "producto";
+
+
+        const productoImagen = document.createElement('img');
+        productoImagen.src = producto.imagen; // Utiliza la propiedad imagen del producto
+        productoImagen.alt = 'Imagen';
+        productoImagen.className = "imagen"; // Corrige la clase
+        productoImagen.width = 200;
+        const nombreProducto = document.createElement('h3');
+        nombreProducto.className = "nombre-producto";
+        nombreProducto.innerHTML = producto.nombre;
+
+        const cantidad = document.createElement('p');
+        cantidad.className = "cantidad";
+        cantidad.innerHTML= `Cantidad: ${producto.cantidad}`;
+        const subtotal = document.createElement('p');
+        subtotal.className = "subtotal";
+        subtotal.innerHTML = `Subtotal: $${producto.subtotal}`;
+
+        productoResumen.appendChild(productoImagen);
+        productoResumen.appendChild(nombreProducto);
+         productoResumen.appendChild(cantidad);
+        productoResumen.appendChild(subtotal);
+
+
+        contenedorPedidos.appendChild(productoResumen);
+        let total = calcularTotal(carrito);
+        document.getElementById('total').textContent = `Total de la Compra: $${total}`;
+
     });
-     let total = calcularTotal(carrito);
-     document.getElementById('total').textContent = total;
-    console.log('carrito en agregarproductosalresumen', carrito);
 }
+
+
+function obtenerFoto(carrito) {
+  const mime = 'image/jpeg';
+  const dataURL = `data:${mime};base64,${pedidos.producto.foto.contenido}`;
+
+  return dataURL;
+}
+
+
 
 function finalizarCompra() {
  const metodoPago = metodoPagoSeleccionado;

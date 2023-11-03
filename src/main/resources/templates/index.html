@@ -82,11 +82,11 @@
 
     <section id="menu" class="container-fluid d-flex flex-column justify-content-center align-items-center my-4"
              style="margin-top: 500px;">
-<!--        <h1 id="menu" class="fw-bold py-4 text-center">Menú</h1>-->
+        <!--        <h1 id="menu" class="fw-bold py-4 text-center">Menú</h1>-->
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-lg-4" th:each="Producto : ${Producto}">
-                    <div class="box shadow p-4 bg-light"  style="margin-top:30px" >
+                    <div class="box shadow p-4 bg-light" style="margin-top:30px">
                         <div class="box">
                             <div class="imgbox">
                                 <img th:src="@{|/productos/imagen/${Producto.id}|}" alt="Imagen" class="d-block w-100"
@@ -118,101 +118,115 @@
                 </div>
 
                 <button id="finalizarCompra" class="btn btn-dark" style="margin-top: 20px;">Finalizar Compra</button>
+    </section>
 
-                <div class="contenedor" id="resumenCompra" style="display: none;background-color: #ffffffd4;">
-                    <div class="contenedor__titulo">
-                        <p>Resumen de Compra</p>
-                    </div>
 
-                    <ul id="listaProductos">
-                        <!-- Aquí se mostrarán los productos seleccionados -->
-                    </ul>
+    <section>
 
-                    <p>Total de la compra: $ <span id="total">0</span></p>
+        <div class="contenedor" id="resumenCompra" style="display: none;background-color: #ffffffd4;">
+<!--           <div class="contenedor__pedidos">-->
 
-                    <!-- Tarjetas para seleccionar método de pago y método de envío -->
-                    <div id="seleccionMetodoPago">
-                        <div class="contenedor__metodos">
-                            <div class="contendor__metodos__col">
-                                <p>Método de pago:</p>
-                                <div class="opciones row__efectivo">
-                                    <label for="checkbox-efectivo" class="elemento-seleccionable">
-                                        <input type="checkbox" id="checkbox-efectivo" name="metodo-pago"
-                                               value="Efectivo">
-                                        <span class="checkmark efectivo"></span>
-                                        Efectivo
-                                    </label>
-                                </div>
-                                <div class="opciones row__transferencia">
-                                    <label for="checkbox-transferencia" class="elemento-seleccionable">
-                                        <input type="checkbox" id="checkbox-transferencia" name="metodo-pago"
-                                               value="Transferencia">
-                                        <span class="checkmark transferencia"></span>
-                                        Transferencia
-                                    </label>
-                                </div>
-                                <div class="opciones row__mercadoPago">
-                                    <label for="checkboxMP" class="elemento-seleccionable">
-                                        <input type="checkbox" id="checkboxMP" name="metodo-pago" value="MercadoPago">
-                                        <span class="checkmark mp"></span>
-                                        MercadoPago
-                                    </label>
 
-                                </div>
+<!--            <div class="contenedor__titulo">-->
+<!--                <p>Resumen de Compra</p>-->
+<!--            </div>-->
+
+<!--            <ul id="listaProductos">-->
+<!--                &lt;!&ndash; Aquí se mostrarán los productos seleccionados &ndash;&gt;-->
+<!--            </ul>-->
+
+<!--            <p>Total de la compra: $ <span id="total">0</span></p>-->
+<!--        </div>-->
+            <div class="contenedor__titulo">
+                                <p>Resumen de Compra</p>
                             </div>
-                            <div class="contendor__metodos__col">
-                                <p>Modo de entrega:</p>
-                                <div class="opciones row__local">
-                                    <label for="checkbox-retiro" class="elemento-seleccionable">
-                                        <input type="checkbox" id="checkbox-retiro" name="modo-entrega"
-                                               value="retiroPorLocal" data-label="Retiro por el Local">
-                                        <span class="checkmark retiro"></span>
-                                        Retiro por el local
-                                    </label>
-                                    <div class="label-descripcion">
-                                    </div>
-
-                                </div>
-
-                                <div class="opciones row__domicilio">
-                                    <label for="checkbox-envio" class="elemento-seleccionable">
-                                        <input type="checkbox" id="checkbox-envio" name="modo-entrega"
-                                               value="envioDomicilio" data-label="Envío a domicilio">
-                                        <span class="checkmark envio"></span>
-                                        Envío a domicilio
-                                    </label>
-                                    <div class="label-descripcion">
-
-                                    </div>
-
-                                </div>
-
-
-                            </div>
-                        </div>
-
-                        <div class="contenedor__mensaje"> Enviaremos tu pedido por whatsApp!
-                        </div>
-
-                        <div class="contenedor__botones">
-                            <button id="finalizarCompraBtn" class="btn btn-dark" type="button"
-                                    onclick="finalizarCompra()" disabled>
-                                <div>
-                                    Finalizar compra
-                                    <img src="../assets/whatsapp_logo.svg" alt="logo whatsapp">
-                                    <img src="../assets/logoWappColor.svg" alt="logo whatsapp">
-                                </div>
-                            </button>
-
-                        </div>
-                    </div>
-
-                </div>
+            <div id="contenedor__pedidos" class="contenedor__pedidos">
 
             </div>
+
+            <div class="contenedor__total">
+                <p id="total"></p>
+            </div>
+            <!-- Tarjetas para seleccionar método de pago y método de envío -->
+            <div id="seleccionMetodoPago">
+                <div class="contenedor__metodos">
+                    <div class="contendor__metodos__col">
+                        <p>Método de pago:</p>
+                        <div class="opciones row__efectivo">
+                            <label for="checkbox-efectivo" class="elemento-seleccionable">
+                                <input type="checkbox" id="checkbox-efectivo" name="metodo-pago"
+                                       value="Efectivo">
+                                <span class="checkmark efectivo"></span>
+                                Efectivo
+                            </label>
+                        </div>
+                        <div class="opciones row__transferencia">
+                            <label for="checkbox-transferencia" class="elemento-seleccionable">
+                                <input type="checkbox" id="checkbox-transferencia" name="metodo-pago"
+                                       value="Transferencia">
+                                <span class="checkmark transferencia"></span>
+                                Transferencia
+                            </label>
+                        </div>
+                        <div class="opciones row__mercadoPago">
+                            <label for="checkboxMP" class="elemento-seleccionable">
+                                <input type="checkbox" id="checkboxMP" name="metodo-pago" value="MercadoPago">
+                                <span class="checkmark mp"></span>
+                                MercadoPago
+                            </label>
+
+                        </div>
+                    </div>
+                    <div class="contendor__metodos__col">
+                        <p>Modo de entrega:</p>
+                        <div class="opciones row__local">
+                            <label for="checkbox-retiro" class="elemento-seleccionable">
+                                <input type="checkbox" id="checkbox-retiro" name="modo-entrega"
+                                       value="retiroPorLocal" data-label="Retiro por el Local">
+                                <span class="checkmark retiro"></span>
+                                Retiro por el local
+                            </label>
+                            <div class="label-descripcion">
+                            </div>
+
+                        </div>
+
+                        <div class="opciones row__domicilio">
+                            <label for="checkbox-envio" class="elemento-seleccionable">
+                                <input type="checkbox" id="checkbox-envio" name="modo-entrega"
+                                       value="envioDomicilio" data-label="Envío a domicilio">
+                                <span class="checkmark envio"></span>
+                                Envío a domicilio
+                            </label>
+                            <div class="label-descripcion">
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="contenedor__mensaje"> Enviaremos tu pedido por whatsApp!
+                </div>
+
+                <div class="contenedor__botones">
+                    <button id="finalizarCompraBtn" class="btn btn-dark" type="button"
+                            onclick="finalizarCompra()" disabled>
+                        <div>
+                            Finalizar compra
+                            <img src="../assets/whatsapp_logo.svg" alt="logo whatsapp">
+                            <img src="../assets/logoWappColor.svg" alt="logo whatsapp">
+                        </div>
+                    </button>
+
+                </div>
+            </div>
+
         </div>
-        </div>
-        </div>
+
+
     </section>
 
 
