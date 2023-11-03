@@ -4,8 +4,9 @@
 }
 
 #description h2 {
-  color: #e0e0e0;
+  color: #ccb517;
   font-size: 65px;
+  text-shadow: 5px 5px 0px rgb(0 0 0 / 80%);
 }
 
 #description p {

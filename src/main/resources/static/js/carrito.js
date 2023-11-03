@@ -123,6 +123,7 @@ function agregarProductoAlResumen(carrito) {
         productoImagen.alt = 'Imagen';
         productoImagen.className = "imagen"; // Corrige la clase
         productoImagen.width = 200;
+        productoImagen.height = 150;
         const nombreProducto = document.createElement('h3');
         nombreProducto.className = "nombre-producto";
         nombreProducto.innerHTML = producto.nombre;
