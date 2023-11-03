@@ -50,6 +50,11 @@ header .offcanvas .offcanvas-header .btn-close {
   font-size: 1.4rem;
 }
 
+header .offcanvas-body {
+  justify-content: space-between;
+  align-items: center;
+}
+
 header .nav-item {
   text-align: center;
 }

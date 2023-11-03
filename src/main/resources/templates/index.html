@@ -42,7 +42,7 @@
         <p class="fs-4 fw-bold text-center px-3" style="color: goldenrod">
             <br>
             <br>
-            ¡Che, bienvenidos a PipicucuFood! Querés comer rico sin salir de casa??? <br>
+            ¡Che, bienvenidos a PipicucuFood! ¿Querés comer rico sin salir de casa? <br>
             PipicucuFood es la plataforma líder de pedidos de comida en línea.<br>
             Conectamos a los "pibes" hambrientos con los "choripaneros" de la esquina.
 
@@ -57,18 +57,18 @@
         </p>
 
 
-        <h2 class="fw-normal">COMO LO HACEMOS?</h2>
+        <h2 class="fw-normal">¿CÓMO LO HACEMOS?</h2>
         <p class="fs-4 fw-bold text-center px-3" style="color: goldenrod">
-            Facil... Mirá...
+            Fácil... Mirá...
 
         <ol class="fs-4 fw-bold px-3" style="color: goldenrod">
 
             <li>Elegí tus platos, bebidas, y postre como si fuera tu último asado.</li>
-            <li>Elegí como vas a pagarlo y decinos si preferis pasarlo a buscar por el local o que te lo llevemos a tu
-                casa
+            <li>Elegí como vas a pagarlo y decínos si preferís pasarlo a buscar por el local o que te lo llevemos a tu
+                casa.
             </li>
 
-            <li>y listo! asi de fácil, así de sencillo</li>
+            <li>¡Y listo! Así de fácil, así de sencillo</li>
         </ol>
         <p class="fs-4 fw-bold text-center px-3" style="color: goldenrod">
             <br>
@@ -82,11 +82,11 @@
 
     <section id="menu" class="container-fluid d-flex flex-column justify-content-center align-items-center my-4"
              style="margin-top: 500px;">
-<!--        <h1 id="menu" class="fw-bold py-4 text-center">Menú</h1>-->
+        <!--        <h1 id="menu" class="fw-bold py-4 text-center">Menú</h1>-->
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-lg-4" th:each="Producto : ${Producto}">
-                    <div class="box shadow p-4 bg-light"  style="margin-top:30px" >
+                    <div class="box shadow p-4 bg-light" style="margin-top:30px">
                         <div class="box">
                             <div class="imgbox">
                                 <img th:src="@{|/productos/imagen/${Producto.id}|}" alt="Imagen" class="d-block w-100"
@@ -120,16 +120,17 @@
                 <button id="finalizarCompra" class="btn btn-dark" style="margin-top: 20px;">Finalizar Compra</button>
 
                 <div class="contenedor" id="resumenCompra" style="display: none;background-color: #ffffffd4;">
-                    <div class="contenedor__titulo">
-                        <p>Resumen de Compra</p>
+                    <div class="contenedor-lista-productos">
+                        <div class="contenedor__titulo">
+                            <p>Resumen de Compra</p>
+                        </div>
+
+                        <ul id="listaProductos">
+                            <!-- Aquí se mostrarán los productos seleccionados -->
+                        </ul>
+
+                        <p>Total de la compra: $ <span id="total">0</span></p>
                     </div>
-
-                    <ul id="listaProductos">
-                        <!-- Aquí se mostrarán los productos seleccionados -->
-                    </ul>
-
-                    <p>Total de la compra: $ <span id="total">0</span></p>
-
                     <!-- Tarjetas para seleccionar método de pago y método de envío -->
                     <div id="seleccionMetodoPago">
                         <div class="contenedor__metodos">
